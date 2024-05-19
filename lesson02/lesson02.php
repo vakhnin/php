@@ -51,4 +51,51 @@ function print_from_parameter_to_15($a) {
 }
 
 print_from_parameter_to_15($a);
-?>
+echo "<br>";
+
+// 3. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. 
+// Обязательно использовать оператор return. 
+// В делении проверьте деление на 0 и верните текст ошибки.
+
+function sum ($a, $b) {
+    return $a + $b;
+}
+
+function minus ($a, $b) {
+    return $a - $b;
+}
+
+function mult ($a, $b) {
+    return $a * $b;
+}
+
+function div ($a, $b) {
+    if ($b == 0) {
+        return "На ноль делить нельзя";
+    }
+    return $a - $b;
+}
+
+// 4. Реализовать функцию с тремя параметрами: function mathOperation($arg1, $arg2, $operation), 
+// где $arg1, $arg2 – значения аргументов, $operation – строка с названием операции. 
+// В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) 
+// и вернуть полученное значение (использовать switch).
+
+function mathOperation($a, $b, $operation) {
+    switch ($operation) {
+        case "sum": return sum($a, $b);
+        case "minus": return minus($a, $b);
+        case "mult": return mult($a, $b);
+        case "div": return div($a, $b);
+        default: return "Неизвестная оперция";
+    }
+}
+
+$a = 2; $b = 3;
+echo "{$a} + {$b} = " . mathOperation($a, $b, 'sum') .  "<br>";
+echo "{$a} - {$b} = " . mathOperation($a, $b, 'minus') .  "<br>";
+echo "{$a} * {$b} = " . mathOperation($a, $b, 'mult') .  "<br>";
+$a = 6; $b = 3;
+echo "{$a} / {$b} = " . mathOperation($a, $b, 'div') .  "<br>";
+echo "{$a} / 0 = " . mathOperation($a, 0, 'div') .  "<br>";
+echo "{$a} ? {$b} = " . mathOperation($a, $b, '?') .  "<br>";
