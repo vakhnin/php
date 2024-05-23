@@ -100,3 +100,19 @@ $str = transliterate($str);
 echo "Преобразованная строка:<br>";
 echo "{$str}<br>";
 echo "<br><br>";
+
+// 5. Написать функцию, которая заменяет в строке пробелы на подчеркивания и возвращает видоизмененную строчку. 
+// Можно через str_replace
+echo "Задача 5<br>";
+
+function replace_space($str) {
+    return str_replace(" ", "_", $str);
+}
+
+$str = "Исходная строка";
+echo "Исходная строка:<br>";
+echo "{$str}<br>";
+
+$str = replace_space($str);
+echo "Преобразованная строка:<br>";
+echo "{$str}<br>";
