@@ -61,32 +61,42 @@ echo "<br>";
 // а значениями – соответствующие латинские буквосочетания 
 // (‘а’=> ’a’, ‘б’ => ‘b’, ‘в’ => ‘v’, ‘г’ => ‘g’, …, ‘э’ => ‘e’, ‘ю’ => ‘yu’, ‘я’ => ‘ya’).
 // Написать функцию транслитерации строк. Она должна учитывать и заглавные буквы.
-echo "Задача 3<br>";
+echo "Задача 4<br>";
 
-$alfabet = array(
-    'а' => 'a',   'б' => 'b',   'в' => 'v',
-    'г' => 'g',   'д' => 'd',   'е' => 'e',
-    'ё' => 'e',   'ж' => 'zh',  'з' => 'z',
-    'и' => 'i',   'й' => 'y',   'к' => 'k',
-    'л' => 'l',   'м' => 'm',   'н' => 'n',
-    'о' => 'o',   'п' => 'p',   'р' => 'r',
-    'с' => 's',   'т' => 't',   'у' => 'u',
-    'ф' => 'f',   'х' => 'h',   'ц' => 'c',
-    'ч' => 'ch',  'ш' => 'sh',  'щ' => 'sch',
-    'ь' => '\'',  'ы' => 'y',   'ъ' => '\'',
-    'э' => 'e',   'ю' => 'yu',  'я' => 'ya'
-);
+function transliterate($str) {
+    $result_str = "";
+    $alfabet = array(
+        'а' => 'a',   'б' => 'b',   'в' => 'v',
+        'г' => 'g',   'д' => 'd',   'е' => 'e',
+        'ё' => 'e',   'ж' => 'zh',  'з' => 'z',
+        'и' => 'i',   'й' => 'y',   'к' => 'k',
+        'л' => 'l',   'м' => 'm',   'н' => 'n',
+        'о' => 'o',   'п' => 'p',   'р' => 'r',
+        'с' => 's',   'т' => 't',   'у' => 'u',
+        'ф' => 'f',   'х' => 'h',   'ц' => 'c',
+        'ч' => 'ch',  'ш' => 'sh',  'щ' => 'sch',
+        'ь' => '\'',  'ы' => 'y',   'ъ' => '\'',
+        'э' => 'e',   'ю' => 'yu',  'я' => 'ya'
+    );
+    
+    for ($i = 0; $i < mb_strlen($str, "UTF-8"); $i++) {
+        $letter = mb_substr($str, $i, 1, "UTF-8");
+        $letter_lowercase = mb_strtolower($letter, "UTF-8");
+        if ($alfabet[$letter_lowercase]) {
+            $result_str .= $alfabet[$letter_lowercase];
+        } else {
+            $result_str  .= $letter;
+        }
+    }
+    return $result_str;
+}
+
+
 
 $str = "Исходная строка";
 echo "Исходная строка:<br>";
 echo "{$str}<br>";
-echo "Строка в транслитирации:<br>";
-for ($i = 0; $i < mb_strlen($str, "UTF-8"); $i++) {
-    $letter = mb_substr($str, $i, 1, "UTF-8");
-    $letter_lowercase = mb_strtolower($letter, "UTF-8");
-    if ($alfabet[$letter_lowercase]) {
-        echo $alfabet[$letter_lowercase];
-    } else {
-        echo $letter;
-    }
-}
+$str = transliterate($str);
+echo "Преобразованная строка:<br>";
+echo "{$str}<br>";
+echo "<br><br>";
