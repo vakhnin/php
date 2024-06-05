@@ -16,6 +16,14 @@ switch ($page) {
         $params['title'] = 'Главная';
         break;
 
+    case 'catalog':
+        $params['title'] = 'Каталог';
+        break;
+        
+    case 'about':
+        $params['title'] = 'О нас';
+        break;
+
     default:
         die("404");
 }
