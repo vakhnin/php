@@ -19,6 +19,14 @@ switch ($page) {
     case 'catalog':
         $params['title'] = 'Каталог';
         break;
+
+    case 'gallery':
+        $params['title'] = 'Галерея';
+        if (isset($_GET['image'])) {
+            $page = "gallery-big-image";
+            $params['image'] = $_GET['image'];
+        } 
+        break;
         
     case 'about':
         $params['title'] = 'О нас';
