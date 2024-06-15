@@ -19,6 +19,10 @@ switch ($page) {
     case 'catalog':
         $params['title'] = 'Каталог';
         break;
+
+    case 'gallery':
+        $params['title'] = 'Галерея';
+        break;
         
     case 'about':
         $params['title'] = 'О нас';
