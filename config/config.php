@@ -7,5 +7,8 @@ define('USER', 'geekbrains');
 define('PASS', '12345');
 define('DB', 'geekbrains');
 
+define('SMALL_IMG_HREF', '/img/small/');
+define('BIG_IMG_HREF', '/img/big/');
+
 require __DIR__ . "/../engine/db.php";
 require __DIR__ . "/../engine/render.php";

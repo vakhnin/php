@@ -1,9 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 
-define('SMALL_IMG_HREF', '/img/small/');
-define('BIG_IMG_HREF', '/img/big/');
-
 $img_array = getRows("SELECT * FROM `images`;");
 ?>
 <h1>Галерея</h1>
