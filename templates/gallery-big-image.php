@@ -1,6 +1,8 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 
+$image = intval($image);
+
 $img = getOneRow("SELECT * FROM `images` WHERE id={$image};");
 ?>
 <h1>Галерея</h1>
